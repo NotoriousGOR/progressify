@@ -13,6 +13,7 @@ type TechnologyCardProps = {
 const Home: NextPage = () => {
   const { data: session } = useSession();
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
+  const userImage = (session?.user) ? session?.user?.image : '';
 
   return (
     <>
@@ -55,7 +56,7 @@ const Home: NextPage = () => {
         {session && (
           <>
             <div>
-              <p>Hello {session.user?.name} <Image src={session.user?.image} width={30} height={30} layout="fixed" alt="image"></Image></p>
+              <p>Hello {session.user?.name} <Image src={userImage} width={30} height={30} layout="fixed" alt="image"></Image></p>
               <p>ID: {session.user?.id}</p>
               <p>Email: {session.user?.email}</p>
               <p>Session Expires at: {session.expires}</p>
