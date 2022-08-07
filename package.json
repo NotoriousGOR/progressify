@@ -2,8 +2,11 @@
   "name": "my-t3-app",
   "version": "0.1.0",
   "private": true,
+  "description": "Not quite sure, could be a photo comparison app based on dates",
+  "author": "Gabe",
   "scripts": {
     "dev": "next dev",
+    "studio": "yarn prisma studio",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -27,7 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "18.0.0",
-    "@types/react": "18.0.14",
+    "@types/react": "^18.0.15",
     "@types/react-dom": "18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
