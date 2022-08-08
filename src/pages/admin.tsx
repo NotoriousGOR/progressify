@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { Role } from '@prisma/client'
+import { log } from 'next-axiom'
 
 
 const Page: NextPage = () => {

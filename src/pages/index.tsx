@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Image from "next/image";
 import ImagePlaceHolder from "../components/ImagePlaceHolder";
+import { log } from "next-axiom";
 import TechnologyCard from "../components/TechnologyCard";
 import { trpc } from "../utils/trpc";
 

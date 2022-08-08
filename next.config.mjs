@@ -1,3 +1,4 @@
+import { withAxiom } from "next-axiom";
 import { env } from "./src/env/server.mjs";
 
 /**
@@ -12,10 +13,10 @@ function defineNextConfig(config) {
   return config;
 }
 
-export default defineNextConfig({
+export default withAxiom(defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
   images: {
     domains: ["lh3.googleusercontent.com"]
   }
-});
+}));
