@@ -19,6 +19,10 @@ enum Role {
   USER
 }
 
+model Example {
+  id String @id @default(cuid())
+}
+
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())

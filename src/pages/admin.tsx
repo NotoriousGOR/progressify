@@ -1,10 +1,14 @@
 import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
+import { Role } from '@prisma/client'
+
 
 const Page: NextPage = () => {
   const { data: session } = useSession();
+  const role: Role = 'ADMIN'
 
-  if (session && session.user?.role === "admin") {
+
+  if (session && role === Role.ADMIN) {
     return (
       <div>
         <h1>Admin</h1>
