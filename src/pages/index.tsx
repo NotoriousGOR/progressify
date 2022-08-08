@@ -59,9 +59,8 @@ const Home: NextPage = () => {
                   src={userImage}
                   width={30}
                   height={30}
-                  placeholder="blur"
                   blurDataURL={ImagePlaceHolder(237, 181, 6)}
-                  layout="responsive"
+                  layout="intrinsic"
                   alt="image"
                 ></Image>
               </p>
