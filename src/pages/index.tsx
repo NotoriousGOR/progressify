@@ -65,6 +65,7 @@ const Home: NextPage = () => {
                 ></Image>
               </p>
               <p>ID: {session.user?.id}</p>
+              <p>Role: {session.user?.role}</p>
               <p>Email: {session.user?.email}</p>
               <p>Session Expires at: {session.expires}</p>
             </div>
