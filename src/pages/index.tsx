@@ -1,17 +1,10 @@
 import type { NextPage } from "next";
-import { useSession } from "next-auth/react";
 import Head from "next/head";
-import Image from "next/image";
-import ImagePlaceHolder from "../components/ImagePlaceHolder";
-import { log } from "next-axiom";
 import TechnologyCard from "../components/TechnologyCard";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const { data: session } = useSession();
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-  const userImage = session?.user ? `${session?.user?.image}` : "";
-
   return (
     <>
       <Head>
@@ -49,28 +42,6 @@ const Home: NextPage = () => {
         <div className="pt-6 text-2xl text-blue-500 flex justify-center items-center w-full">
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
         </div>
-
-        {session && (
-          <>
-            <div>
-              <p>
-                Hello {session.user?.name}{" "}
-                <Image
-                  src={userImage}
-                  width={30}
-                  height={30}
-                  blurDataURL={ImagePlaceHolder(237, 181, 6)}
-                  layout="intrinsic"
-                  alt="image"
-                ></Image>
-              </p>
-              <p>ID: {session.user?.id}</p>
-              <p>Role: {session.user?.role}</p>
-              <p>Email: {session.user?.email}</p>
-              <p>Session Expires at: {session.expires}</p>
-            </div>
-          </>
-        )}
       </main>
     </>
   );

@@ -6,10 +6,8 @@ import { log } from 'next-axiom'
 
 const Page: NextPage = () => {
   const { data: session } = useSession();
-  const role: Role = 'ADMIN'
 
-
-  if (session && role === Role.ADMIN) {
+  if (session && session.user?.role === Role.ADMIN) {
     return (
       <div>
         <h1>Admin</h1>
