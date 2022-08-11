@@ -1,5 +1,5 @@
 import React from "react";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import ImagePlaceHolder from "../components/ImagePlaceHolder";
 
@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">Progressify</a>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
@@ -48,7 +48,7 @@ export default function NavBar() {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a onClick={() => signOut({ callbackUrl: "/" })}>Logout</a>
             </li>
           </ul>
         </div>
