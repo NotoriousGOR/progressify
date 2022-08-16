@@ -3,12 +3,11 @@ import GoogleProvider from "next-auth/providers/google";
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "../../../server/db/client";
-import { Role } from "@prisma/client";
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
-    session({ session, token, user }) {
+    session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
         session.user.role = user.role; // Add role value to user object so it is passed along with session

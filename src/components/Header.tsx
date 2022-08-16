@@ -5,6 +5,8 @@ import { Navbar, Button, Form, Input, Dropdown } from "react-daisyui";
 import { RiUser5Fill } from "react-icons/ri";
 
 import ImagePlaceHolder from "../components/ImagePlaceHolder";
+import { Role } from "@prisma/client";
+import Link from "next/link";
 
 export default function Header() {
   const { data: session } = useSession();
@@ -35,17 +37,19 @@ export default function Header() {
                     alt="image"
                   />
                 ) : (
-                  <RiUser5Fill />
+                  <RiUser5Fill className="w-full h-full" />
                 )}
               </div>
             </Button>
             <Dropdown.Menu className="w-52 menu-compact">
               {isLoggedIn ? (
                 <li>
+                  {session.user?.role === Role.ADMIN && (
+                    <Link href="/admin"> Admin</Link>
+                  )}
                   <a href="/profile" className="justify-between">
                     Profile
                   </a>
-
                   <a onClick={() => signOut({ callbackUrl: "/" })}>Logout</a>
                 </li>
               ) : (
